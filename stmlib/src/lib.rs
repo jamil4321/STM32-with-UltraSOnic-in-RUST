@@ -36,7 +36,7 @@ pub fn init() -> (
     let delay = Delay::new(cp.SYST, clocks);
 
     let leds = Leds::new(dp.GPIOE.split(&mut rcc.ahb));
-    let timmer = Timer::tim7(dp.TIM7, Hertz(1), clocks, &mut rcc.apb1);
+    // let timmer = Timer::tim7(dp.TIM7, Hertz(1), clocks, &mut rcc.apb1);
 
-    unsafe { (delay, leds, &*GPIOA::ptr(), &*RCC::ptr(), cp.ITM,MonoTimer::new(cp.DWT, clocks),) }
+    unsafe { (delay, leds, &*GPIOA::ptr(), &*RCC::ptr(), cp.ITM, MonoTimer::new(cp.DWT, clocks),) }
 }
